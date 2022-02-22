@@ -6,9 +6,15 @@ server:
   port: 8082
 
 eureka:
+  instance:
+    hostname: springcloud-sample-feign
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
   client:
-    serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka/
+    healthcheck:
+      enabled: true
+    service-url:
+      default-zone: http://eureka-server:8761/eureka/
 
 #开启熔断器
 feign:
