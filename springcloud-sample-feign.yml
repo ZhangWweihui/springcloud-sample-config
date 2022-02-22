@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: springcloud-sample-feign
+
+server:
+  port: 8082
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka/
+
+#开启熔断器
+feign:
+  hystrix:
+    enabled: true
+
+logging:
+  level:
+    com.zwh.springcloud.feign.service.ApiService: debug
